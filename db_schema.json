@@ -1,0 +1,9 @@
+{
+  "genres": "(id serial primary key, name varchar)",
+  "categories": "(id serial primary key, name varchar)",
+  "price_types": "(id serial primary key, name varchar)",
+  "content_ratings": "(id serial primary key, rating varchar)",
+  "apps": "(id serial primary key, name varchar, category_id integer, price_type integer, content_rating integer, foreign key (category_id) references categories (id), foreign key (price_type) references price_types (id), foreign key (content_rating) references content_ratings (id))",
+  "reviews": "(id serial primary key, app_id integer, review varchar, foreign key (app_id) references apps (id))",
+  "apps_genres": "(id serial primary key, app_id integer, genre_id integer, foreign key (app_id) references apps (id), foreign key (genre_id) references genres (id))"
+}
